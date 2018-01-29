@@ -1,0 +1,9 @@
+# 忽略一下文件及注意事项
+*.iml
+.gradle/*
+.idea/*
+build/*
+target/*
+
+
+
