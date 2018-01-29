@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd"> 
+            
+            
+            
+            
+	  <!-- 开启注解扫描 识别框架搭建过程中的 @service 和 @repository 
+	       base-package 扫描com.jk包下的所有类 识别类中有关于spring的注解
+	                    注解 其实就是在java类当中编写一个标志，能够被java代码所识别，通过该注解的形式，做对应的代码操作 
+	  --> 
+     <context:component-scan base-package="com.jk">
+       
+     <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+     </context:component-scan>
+     
+          
+  <!-- 配置数据源属性文件
+       spring读取properties文件所用工具类
+  --> 
+  <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">   
+      		<list>    
+      			<value>classpath:config.properties</value>   
+          	</list>  
+        </property> 
+  </bean>
+     
+       <!-- 配置数据源 
+                     配置数据库连接池 获取数据源
+		  -->
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+    <property name="driverClassName" value="${jdbc.driver}"/> 
+    <property name="url" value="${jdbc.url}"/> 
+    <property name="username" value="${jdbc.username}"/> 
+    <property name="password" value="${jdbc.password}"/>
+    <!--maxActive: 最大连接数量-->    
+    <property name="maxActive" value="${jdbc.maxActive}"/>  
+    <!--minIdle: 最小空闲连接-->    
+    <property name="minIdle" value="${jdbc.minIdle}"/>  
+    <!--maxIdle: 最大空闲连接-->    
+    <property name="maxIdle" value="${jdbc.maxIdle}"/>  
+  </bean>
+     
+     
+     
+     <!--   mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源
+          MyBatis定义数据源,同意加载配置 -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 引入数据配置 方便mybatis获取数据库连接 -->
+	<property name="dataSource" ref="dataSource"></property>
+	<!-- 配置mybatis的日志记录 
+	     mybatis-config.xml mybatis的全局配置文件
+	                                                                       主要用来配置共有常量等信息
+	                                                                        配置日志信息
+	-->
+	<property name="configLocation" value="classpath:mybatis-config.xml"></property> 
+	<!--mapperLocations
+	    mybatis映射文件的扫描路径
+	           扫描识别mybatis的映射文件
+	  --> 
+	<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+</bean>
+<!-- mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer sqlSessionFactory
+	basePackage:指定sql映射文件/接口所在的包（自动扫描）
+ -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!-- mybatis没有dao层  mybatis的映射接口充当dao层-->
+	<property name="basePackage" value="com.jk.dao.*" />
+	<!-- 注入sqlSessionFactory 相当于把Hibernate的sessionFactory注入到HibernateDaoSupport一样 -->
+	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+</bean>
+     
+     
+     
+       <!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <!-- 配置数据源 引入数据库连接池 获取到数数据连接 -->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- 定义advice,配置传播特性、事务隔离级别、只读事务、回滚策略 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="up*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="del*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="edit*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 定义那些类使用事务 -->
+	<aop:config>
+		<aop:advisor pointcut="execution(* com.jk.service.*.*.*(..))" advice-ref="txAdvice"/>
+	</aop:config>
+     
+ 
+</beans> 

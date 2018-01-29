@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo 
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"  default-autowire="byName">
+    
+    <!-- 消费方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用调用的,保持唯一性 -->  
+     <dubbo:application name="consumer-of-helloworld-app"  />   
+       
+       <!-- 使用zookeeper注册中心发现暴露的服务地址 -->    
+     <dubbo:registry address="zookeeper://192.168.184.128:2181" />
+
+
+       <!-- 生成远程服务代理，可以和本地bean一样使用demoService，该interface需要与服务端暴露的服务interface保持一致，该id已注入Spring -->
+	<dubbo:reference id="treeService" interface="com.jk.service.Tree.TreeService"  timeout="40000"  />
+</beans>  

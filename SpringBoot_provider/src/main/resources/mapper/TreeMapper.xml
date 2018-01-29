@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.Tree.TreeMapper" >
+	<!-- 开启二级缓存 -->
+	<!-- <cache eviction="LRU"
+	       flushInterval="60000"
+	       size="512"
+	       readOnly="true"
+	/> -->
+	
+  <resultMap id="BaseResultMap" type="com.jk.model.Tree.Tree" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, text, url, pid
+  </sql>
+  <!--开启缓存更新机制　// flah -->
+  			<select id="findTree" resultMap="BaseResultMap">
+		    select * from t_power where pid=#{i}
+  			</select>
+			</mapper>
