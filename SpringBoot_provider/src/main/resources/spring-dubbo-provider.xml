@@ -27,5 +27,15 @@
    <bean id="treeService" class="com.jk.service.Tree.Impl.TreeServiceImpl"></bean>
    
    <dubbo:service interface="com.jk.service.Tree.TreeService" ref="treeService" />
+
+    <!-- 注入实现类 -->
+    <bean id="userInfoService" class="com.jk.service.MainUserInfo.Impl.MainUserInfoServiceImpl"></bean>
+
+    <dubbo:service interface="com.jk.service.MainUserInfo.MainUserInfoService" ref="userInfoService" />
+
+    <!-- 注入video层 -->
+    <bean id="videoInfo" class="com.jk.service.ShowVideoInfo.Impl.VideoInfoServiceImpl"></bean>
+
+    <dubbo:service interface="com.jk.service.ShowVideoInfo.VideoInfoService" ref="videoInfo" />
    
  </beans>	

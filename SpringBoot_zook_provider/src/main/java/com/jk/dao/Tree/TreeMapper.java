@@ -2,7 +2,7 @@ package com.jk.dao.Tree;
 
 
 import com.jk.model.Tree.Tree;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
 
