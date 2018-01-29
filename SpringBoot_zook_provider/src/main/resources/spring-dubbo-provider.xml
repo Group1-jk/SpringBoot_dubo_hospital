@@ -29,4 +29,8 @@
 
 
     <dubbo:service interface="com.jk.service.Tree.TreeService" ref="treeService" timeout="6000" />
+
+    <dubbo:service interface="com.jk.service.MainUserInfo.MainUserInfoService" ref="userInfoService" timeout="6000" />
+
+    <dubbo:service interface="com.jk.service.ShowVideoInfo.VideoInfoService" ref="videoInfo" timeout="6000" />
 </beans>

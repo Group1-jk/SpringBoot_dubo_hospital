@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.MainUserInfo.OrganizationInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.MainUserInfo.OrganizationInfo" >
+    <id column="info_id" property="infoId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+    <result column="user_logo" property="userLogo" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_intro" property="userIntro" jdbcType="VARCHAR" />
+    <result column="study_direction" property="studyDirection" jdbcType="VARCHAR" />
+    <result column="net_url" property="netUrl" jdbcType="VARCHAR" />
+    <result column="user_struture" property="userStruture" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="SMALLINT" />
+    <result column="user_level" property="userLevel" jdbcType="SMALLINT" />
+    <result column="business_card" property="businessCard" jdbcType="VARCHAR" />
+    <result column="status_card" property="statusCard" jdbcType="VARCHAR" />
+    <result column="promise_book" property="promiseBook" jdbcType="VARCHAR" />
+    <result column="check_status" property="checkStatus" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    info_id, user_name, user_address, user_logo, user_email, user_intro, study_direction, 
+    net_url, user_struture, user_type, user_level, business_card, status_card, promise_book, 
+    check_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_info_2
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_info_2
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.MainUserInfo.OrganizationInfo" >
+    insert into t_info_2 (info_id, user_name, user_address, 
+      user_logo, user_email, user_intro, 
+      study_direction, net_url, user_struture, 
+      user_type, user_level, business_card, 
+      status_card, promise_book, check_status
+      )
+    values (#{infoId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userLogo,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{userIntro,jdbcType=VARCHAR}, 
+      #{studyDirection,jdbcType=VARCHAR}, #{netUrl,jdbcType=VARCHAR}, #{userStruture,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=SMALLINT}, #{userLevel,jdbcType=SMALLINT}, #{businessCard,jdbcType=VARCHAR}, 
+      #{statusCard,jdbcType=VARCHAR}, #{promiseBook,jdbcType=VARCHAR}, #{checkStatus,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.MainUserInfo.OrganizationInfo" >
+    insert into t_info_2
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        info_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userAddress != null" >
+        user_address,
+      </if>
+      <if test="userLogo != null" >
+        user_logo,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userIntro != null" >
+        user_intro,
+      </if>
+      <if test="studyDirection != null" >
+        study_direction,
+      </if>
+      <if test="netUrl != null" >
+        net_url,
+      </if>
+      <if test="userStruture != null" >
+        user_struture,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="userLevel != null" >
+        user_level,
+      </if>
+      <if test="businessCard != null" >
+        business_card,
+      </if>
+      <if test="statusCard != null" >
+        status_card,
+      </if>
+      <if test="promiseBook != null" >
+        promise_book,
+      </if>
+      <if test="checkStatus != null" >
+        check_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null" >
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userLogo != null" >
+        #{userLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null" >
+        #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="studyDirection != null" >
+        #{studyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="netUrl != null" >
+        #{netUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userStruture != null" >
+        #{userStruture,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=SMALLINT},
+      </if>
+      <if test="userLevel != null" >
+        #{userLevel,jdbcType=SMALLINT},
+      </if>
+      <if test="businessCard != null" >
+        #{businessCard,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCard != null" >
+        #{statusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="promiseBook != null" >
+        #{promiseBook,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        #{checkStatus,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.MainUserInfo.OrganizationInfo" >
+    update t_info_2
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null" >
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userLogo != null" >
+        user_logo = #{userLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null" >
+        user_intro = #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="studyDirection != null" >
+        study_direction = #{studyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="netUrl != null" >
+        net_url = #{netUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userStruture != null" >
+        user_struture = #{userStruture,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=SMALLINT},
+      </if>
+      <if test="userLevel != null" >
+        user_level = #{userLevel,jdbcType=SMALLINT},
+      </if>
+      <if test="businessCard != null" >
+        business_card = #{businessCard,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCard != null" >
+        status_card = #{statusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="promiseBook != null" >
+        promise_book = #{promiseBook,jdbcType=VARCHAR},
+      </if>
+      <if test="checkStatus != null" >
+        check_status = #{checkStatus,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.MainUserInfo.OrganizationInfo" >
+    update t_info_2
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_logo = #{userLogo,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_intro = #{userIntro,jdbcType=VARCHAR},
+      study_direction = #{studyDirection,jdbcType=VARCHAR},
+      net_url = #{netUrl,jdbcType=VARCHAR},
+      user_struture = #{userStruture,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=SMALLINT},
+      user_level = #{userLevel,jdbcType=SMALLINT},
+      business_card = #{businessCard,jdbcType=VARCHAR},
+      status_card = #{statusCard,jdbcType=VARCHAR},
+      promise_book = #{promiseBook,jdbcType=VARCHAR},
+      check_status = #{checkStatus,jdbcType=SMALLINT}
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+</mapper>

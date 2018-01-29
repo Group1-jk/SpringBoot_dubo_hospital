@@ -6,6 +6,7 @@ import java.util.List;
 public class Tree implements Serializable {
 
     private static final long serialVersionUID = -5302364446091161819L;
+
     private Integer id;
 
     private String text;

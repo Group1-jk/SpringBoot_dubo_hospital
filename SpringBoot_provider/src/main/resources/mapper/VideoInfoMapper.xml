@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.ShowVideoInfo.VideoInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.ShowVideoInfo.VideoInfo" >
+    <id column="video_id" property="videoId" jdbcType="INTEGER" />
+    <result column="video_saveid" property="videoSaveid" jdbcType="VARCHAR" />
+    <result column="video_type" property="videoType" jdbcType="INTEGER" />
+    <result column="video_name" property="videoName" jdbcType="VARCHAR" />
+    <result column="video_Imgid" property="videoImgid" jdbcType="VARCHAR" />
+    <result column="video_cost" property="videoCost" jdbcType="DOUBLE" />
+    <result column="video_info" property="videoInfo" jdbcType="VARCHAR" />
+    <result column="video_click" property="videoClick" jdbcType="INTEGER" />
+    <result column="video_userId" property="videoUserid" jdbcType="INTEGER" />
+    <result column="video_status" property="videoStatus" jdbcType="INTEGER" />
+    <result column="video_score" property="videoScore" jdbcType="INTEGER" />
+    <result column="check_status" property="checkStatus" jdbcType="SMALLINT" />
+    <result column="video_addtime" property="videoAddtime" jdbcType="DATE" />
+    <result column="videoinnerTypeid" property="videoinnertypeid" jdbcType="INTEGER" />
+    <result column="videostrTypeid" property="videostrtypeid" jdbcType="VARCHAR" />
+    <result column="video_time" property="videoTime" jdbcType="INTEGER" />
+    <result column="video_orderFlag" property="videoOrderflag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    video_id, video_saveid, video_type, video_name, video_Imgid, video_cost, video_info, 
+    video_click, video_userId, video_status, video_score, check_status, video_addtime, 
+    videoinnerTypeid, videostrTypeid, video_time, video_orderFlag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_hospital_video
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_hospital_video
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.ShowVideoInfo.VideoInfo" >
+    insert into t_hospital_video (video_id, video_saveid, video_type, 
+      video_name, video_Imgid, video_cost, 
+      video_info, video_click, video_userId, 
+      video_status, video_score, check_status, 
+      video_addtime, videoinnerTypeid, videostrTypeid, 
+      video_time, video_orderFlag)
+    values (#{videoId,jdbcType=INTEGER}, #{videoSaveid,jdbcType=VARCHAR}, #{videoType,jdbcType=INTEGER}, 
+      #{videoName,jdbcType=VARCHAR}, #{videoImgid,jdbcType=VARCHAR}, #{videoCost,jdbcType=DOUBLE}, 
+      #{videoInfo,jdbcType=VARCHAR}, #{videoClick,jdbcType=INTEGER}, #{videoUserid,jdbcType=INTEGER}, 
+      #{videoStatus,jdbcType=INTEGER}, #{videoScore,jdbcType=INTEGER}, #{checkStatus,jdbcType=SMALLINT}, 
+      #{videoAddtime,jdbcType=DATE}, #{videoinnertypeid,jdbcType=INTEGER}, #{videostrtypeid,jdbcType=VARCHAR}, 
+      #{videoTime,jdbcType=INTEGER}, #{videoOrderflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.ShowVideoInfo.VideoInfo" >
+    insert into t_hospital_video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="videoSaveid != null" >
+        video_saveid,
+      </if>
+      <if test="videoType != null" >
+        video_type,
+      </if>
+      <if test="videoName != null" >
+        video_name,
+      </if>
+      <if test="videoImgid != null" >
+        video_Imgid,
+      </if>
+      <if test="videoCost != null" >
+        video_cost,
+      </if>
+      <if test="videoInfo != null" >
+        video_info,
+      </if>
+      <if test="videoClick != null" >
+        video_click,
+      </if>
+      <if test="videoUserid != null" >
+        video_userId,
+      </if>
+      <if test="videoStatus != null" >
+        video_status,
+      </if>
+      <if test="videoScore != null" >
+        video_score,
+      </if>
+      <if test="checkStatus != null" >
+        check_status,
+      </if>
+      <if test="videoAddtime != null" >
+        video_addtime,
+      </if>
+      <if test="videoinnertypeid != null" >
+        videoinnerTypeid,
+      </if>
+      <if test="videostrtypeid != null" >
+        videostrTypeid,
+      </if>
+      <if test="videoTime != null" >
+        video_time,
+      </if>
+      <if test="videoOrderflag != null" >
+        video_orderFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="videoSaveid != null" >
+        #{videoSaveid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        #{videoType,jdbcType=INTEGER},
+      </if>
+      <if test="videoName != null" >
+        #{videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoImgid != null" >
+        #{videoImgid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoCost != null" >
+        #{videoCost,jdbcType=DOUBLE},
+      </if>
+      <if test="videoInfo != null" >
+        #{videoInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="videoClick != null" >
+        #{videoClick,jdbcType=INTEGER},
+      </if>
+      <if test="videoUserid != null" >
+        #{videoUserid,jdbcType=INTEGER},
+      </if>
+      <if test="videoStatus != null" >
+        #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="videoScore != null" >
+        #{videoScore,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null" >
+        #{checkStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="videoAddtime != null" >
+        #{videoAddtime,jdbcType=DATE},
+      </if>
+      <if test="videoinnertypeid != null" >
+        #{videoinnertypeid,jdbcType=INTEGER},
+      </if>
+      <if test="videostrtypeid != null" >
+        #{videostrtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTime != null" >
+        #{videoTime,jdbcType=INTEGER},
+      </if>
+      <if test="videoOrderflag != null" >
+        #{videoOrderflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.ShowVideoInfo.VideoInfo" >
+    update t_hospital_video
+    <set >
+      <if test="videoSaveid != null" >
+        video_saveid = #{videoSaveid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        video_type = #{videoType,jdbcType=INTEGER},
+      </if>
+      <if test="videoName != null" >
+        video_name = #{videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoImgid != null" >
+        video_Imgid = #{videoImgid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoCost != null" >
+        video_cost = #{videoCost,jdbcType=DOUBLE},
+      </if>
+      <if test="videoInfo != null" >
+        video_info = #{videoInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="videoClick != null" >
+        video_click = #{videoClick,jdbcType=INTEGER},
+      </if>
+      <if test="videoUserid != null" >
+        video_userId = #{videoUserid,jdbcType=INTEGER},
+      </if>
+      <if test="videoStatus != null" >
+        video_status = #{videoStatus,jdbcType=INTEGER},
+      </if>
+      <if test="videoScore != null" >
+        video_score = #{videoScore,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatus != null" >
+        check_status = #{checkStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="videoAddtime != null" >
+        video_addtime = #{videoAddtime,jdbcType=DATE},
+      </if>
+      <if test="videoinnertypeid != null" >
+        videoinnerTypeid = #{videoinnertypeid,jdbcType=INTEGER},
+      </if>
+      <if test="videostrtypeid != null" >
+        videostrTypeid = #{videostrtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTime != null" >
+        video_time = #{videoTime,jdbcType=INTEGER},
+      </if>
+      <if test="videoOrderflag != null" >
+        video_orderFlag = #{videoOrderflag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.ShowVideoInfo.VideoInfo" >
+    update t_hospital_video
+    set video_saveid = #{videoSaveid,jdbcType=VARCHAR},
+      video_type = #{videoType,jdbcType=INTEGER},
+      video_name = #{videoName,jdbcType=VARCHAR},
+      video_Imgid = #{videoImgid,jdbcType=VARCHAR},
+      video_cost = #{videoCost,jdbcType=DOUBLE},
+      video_info = #{videoInfo,jdbcType=VARCHAR},
+      video_click = #{videoClick,jdbcType=INTEGER},
+      video_userId = #{videoUserid,jdbcType=INTEGER},
+      video_status = #{videoStatus,jdbcType=INTEGER},
+      video_score = #{videoScore,jdbcType=INTEGER},
+      check_status = #{checkStatus,jdbcType=SMALLINT},
+      video_addtime = #{videoAddtime,jdbcType=DATE},
+      videoinnerTypeid = #{videoinnertypeid,jdbcType=INTEGER},
+      videostrTypeid = #{videostrtypeid,jdbcType=VARCHAR},
+      video_time = #{videoTime,jdbcType=INTEGER},
+      video_orderFlag = #{videoOrderflag,jdbcType=INTEGER}
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </update>
+</mapper>

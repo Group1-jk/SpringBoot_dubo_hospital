@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.MainUserInfo.DoctorInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.jk.model.MainUserInfo.DoctorInfo" >
+    <id column="info_id" property="infoId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="SMALLINT" />
+    <result column="user_age" property="userAge" jdbcType="SMALLINT" />
+    <result column="user_birth" property="userBirth" jdbcType="DATE" />
+    <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_intro" property="userIntro" jdbcType="VARCHAR" />
+    <result column="eduction_card" property="eductionCard" jdbcType="VARCHAR" />
+    <result column="body_card" property="bodyCard" jdbcType="VARCHAR" />
+    <result column="status_card" property="statusCard" jdbcType="VARCHAR" />
+    <result column="doctor_card" property="doctorCard" jdbcType="VARCHAR" />
+    <result column="medical_result" property="medicalResult" jdbcType="VARCHAR" />
+    <result column="promise_book" property="promiseBook" jdbcType="VARCHAR" />
+    <result column="check_state" property="checkState" jdbcType="SMALLINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.jk.model.MainUserInfo.DoctorInfo" extends="BaseResultMap" >
+    <result column="medical_go" property="medicalGo" jdbcType="VARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    info_id, user_name, user_sex, user_age, user_birth, user_address, user_email, user_intro, 
+    eduction_card, body_card, status_card, doctor_card, medical_result, promise_book, 
+    check_state
+  </sql>
+  <sql id="Blob_Column_List" >
+    medical_go
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_info_1
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_info_1
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.MainUserInfo.DoctorInfo" >
+    insert into t_info_1 (info_id, user_name, user_sex, 
+      user_age, user_birth, user_address, 
+      user_email, user_intro, eduction_card, 
+      body_card, status_card, doctor_card, 
+      medical_result, promise_book, check_state, 
+      medical_go)
+    values (#{infoId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=SMALLINT}, 
+      #{userAge,jdbcType=SMALLINT}, #{userBirth,jdbcType=DATE}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userIntro,jdbcType=VARCHAR}, #{eductionCard,jdbcType=VARCHAR}, 
+      #{bodyCard,jdbcType=VARCHAR}, #{statusCard,jdbcType=VARCHAR}, #{doctorCard,jdbcType=VARCHAR}, 
+      #{medicalResult,jdbcType=VARCHAR}, #{promiseBook,jdbcType=VARCHAR}, #{checkState,jdbcType=SMALLINT}, 
+      #{medicalGo,jdbcType=VARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.MainUserInfo.DoctorInfo" >
+    insert into t_info_1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        info_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userAge != null" >
+        user_age,
+      </if>
+      <if test="userBirth != null" >
+        user_birth,
+      </if>
+      <if test="userAddress != null" >
+        user_address,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userIntro != null" >
+        user_intro,
+      </if>
+      <if test="eductionCard != null" >
+        eduction_card,
+      </if>
+      <if test="bodyCard != null" >
+        body_card,
+      </if>
+      <if test="statusCard != null" >
+        status_card,
+      </if>
+      <if test="doctorCard != null" >
+        doctor_card,
+      </if>
+      <if test="medicalResult != null" >
+        medical_result,
+      </if>
+      <if test="promiseBook != null" >
+        promise_book,
+      </if>
+      <if test="checkState != null" >
+        check_state,
+      </if>
+      <if test="medicalGo != null" >
+        medical_go,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=SMALLINT},
+      </if>
+      <if test="userAge != null" >
+        #{userAge,jdbcType=SMALLINT},
+      </if>
+      <if test="userBirth != null" >
+        #{userBirth,jdbcType=DATE},
+      </if>
+      <if test="userAddress != null" >
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null" >
+        #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="eductionCard != null" >
+        #{eductionCard,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyCard != null" >
+        #{bodyCard,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCard != null" >
+        #{statusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorCard != null" >
+        #{doctorCard,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalResult != null" >
+        #{medicalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="promiseBook != null" >
+        #{promiseBook,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        #{checkState,jdbcType=SMALLINT},
+      </if>
+      <if test="medicalGo != null" >
+        #{medicalGo,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.MainUserInfo.DoctorInfo" >
+    update t_info_1
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=SMALLINT},
+      </if>
+      <if test="userAge != null" >
+        user_age = #{userAge,jdbcType=SMALLINT},
+      </if>
+      <if test="userBirth != null" >
+        user_birth = #{userBirth,jdbcType=DATE},
+      </if>
+      <if test="userAddress != null" >
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null" >
+        user_intro = #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="eductionCard != null" >
+        eduction_card = #{eductionCard,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyCard != null" >
+        body_card = #{bodyCard,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCard != null" >
+        status_card = #{statusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorCard != null" >
+        doctor_card = #{doctorCard,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalResult != null" >
+        medical_result = #{medicalResult,jdbcType=VARCHAR},
+      </if>
+      <if test="promiseBook != null" >
+        promise_book = #{promiseBook,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        check_state = #{checkState,jdbcType=SMALLINT},
+      </if>
+      <if test="medicalGo != null" >
+        medical_go = #{medicalGo,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jk.model.MainUserInfo.DoctorInfo" >
+    update t_info_1
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=SMALLINT},
+      user_age = #{userAge,jdbcType=SMALLINT},
+      user_birth = #{userBirth,jdbcType=DATE},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_intro = #{userIntro,jdbcType=VARCHAR},
+      eduction_card = #{eductionCard,jdbcType=VARCHAR},
+      body_card = #{bodyCard,jdbcType=VARCHAR},
+      status_card = #{statusCard,jdbcType=VARCHAR},
+      doctor_card = #{doctorCard,jdbcType=VARCHAR},
+      medical_result = #{medicalResult,jdbcType=VARCHAR},
+      promise_book = #{promiseBook,jdbcType=VARCHAR},
+      check_state = #{checkState,jdbcType=SMALLINT},
+      medical_go = #{medicalGo,jdbcType=VARBINARY}
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.MainUserInfo.DoctorInfo" >
+    update t_info_1
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=SMALLINT},
+      user_age = #{userAge,jdbcType=SMALLINT},
+      user_birth = #{userBirth,jdbcType=DATE},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_intro = #{userIntro,jdbcType=VARCHAR},
+      eduction_card = #{eductionCard,jdbcType=VARCHAR},
+      body_card = #{bodyCard,jdbcType=VARCHAR},
+      status_card = #{statusCard,jdbcType=VARCHAR},
+      doctor_card = #{doctorCard,jdbcType=VARCHAR},
+      medical_result = #{medicalResult,jdbcType=VARCHAR},
+      promise_book = #{promiseBook,jdbcType=VARCHAR},
+      check_state = #{checkState,jdbcType=SMALLINT}
+    where info_id = #{infoId,jdbcType=INTEGER}
+  </update>
+</mapper>
