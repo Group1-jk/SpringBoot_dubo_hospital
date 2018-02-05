@@ -37,5 +37,10 @@
     <bean id="videoInfo" class="com.jk.service.ShowVideoInfo.Impl.VideoInfoServiceImpl"></bean>
 
     <dubbo:service interface="com.jk.service.ShowVideoInfo.VideoInfoService" ref="videoInfo" />
-   
+
+    <!-- 注入实现类 -->
+    <bean id="threeService" class="com.jk.service.Three.Impl.ThreeServiceImpl"></bean>
+
+    <dubbo:service interface="com.jk.service.Three.ThreeService" ref="threeService" />
+
  </beans>	
