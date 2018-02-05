@@ -18,7 +18,7 @@
    <dubbo:application name="dubbo_provider"></dubbo:application>  
    
    <!-- 使用zookeeper注册中心暴露服务地址 -->    
-   <dubbo:registry address="zookeeper://192.168.184.128:2181" register="" check="false" subscribe="false" />
+   <dubbo:registry address="zookeeper://192.168.187.128:2181" register="" check="false" subscribe="false" />
 
    <!-- dubbo端口号 -->  
    <dubbo:protocol name="dubbo" port="20881" ></dubbo:protocol>

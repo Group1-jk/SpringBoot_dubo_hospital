@@ -1,8 +1,10 @@
 package com.jk.model.ShowVideoInfo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VideoInfo {
+public class VideoInfo implements Serializable {
+    private static final long serialVersionUID = 2445568742533485266L;
     private Integer videoId;
 
     private String videoSaveid;

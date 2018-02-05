@@ -49,6 +49,19 @@
       #{videoAddtime,jdbcType=DATE}, #{videoinnertypeid,jdbcType=INTEGER}, #{videostrtypeid,jdbcType=VARCHAR}, 
       #{videoTime,jdbcType=INTEGER}, #{videoOrderflag,jdbcType=INTEGER})
   </insert>
+<!-- 查询条数-->
+  <select id="findVideoCount" resultType="java.lang.Long">
+    select count(0) from t_hospital_video
+  </select>
+   <!-- 查询列表-->
+  <select id="findVideoList" resultType="java.util.LinkedHashMap">
+    select th.*,tl.user_id,tl.user_count from t_hospital_video th ,t_user tl where th.video_userId=tl.user_id order by video_click limit 0,6
+  </select>
+
+  <update id="updateVideoClick" >
+  update t_hospital_video set video_click=#{i} where video_id=#{imgid}
+  </update>
+
   <insert id="insertSelective" parameterType="com.jk.model.ShowVideoInfo.VideoInfo" >
     insert into t_hospital_video
     <trim prefix="(" suffix=")" suffixOverrides="," >

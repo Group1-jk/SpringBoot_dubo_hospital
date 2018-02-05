@@ -7,6 +7,15 @@
  */  
 package com.jk.service.ShowVideoInfo;
 
+import com.jk.model.ShowVideoInfo.VideoInfo;
+import com.mongodb.gridfs.GridFSDBFile;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 /** 
  * <pre>项目名称：Hospital    
  * 类名称：VideoInfoService  一句话描述这个方法的作用();  
@@ -20,4 +29,15 @@ package com.jk.service.ShowVideoInfo;
  */
 public interface VideoInfoService {
 
+    List<LinkedHashMap> VideoList(VideoInfo video);
+
+    Map findVideoList(VideoInfo video);
+
+    HashMap<String,Object> advertImgUplod(MultipartFile file);
+
+    GridFSDBFile queryAdvertImage(String advertImage);
+
+    void updateVideoClick(Integer imgid, Long i);
+
+    VideoInfo findVideoInfoById(Integer imgid);
 }

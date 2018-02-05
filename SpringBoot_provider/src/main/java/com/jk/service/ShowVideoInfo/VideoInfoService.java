@@ -7,7 +7,14 @@
  */  
 package com.jk.service.ShowVideoInfo;
 
-/** 
+import com.jk.model.ShowVideoInfo.VideoInfo;
+import com.mongodb.gridfs.GridFSDBFile;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
  * <pre>项目名称：Hospital    
  * 类名称：VideoInfoService  一句话描述这个方法的作用();  
  * 类描述：    
@@ -20,4 +27,15 @@ package com.jk.service.ShowVideoInfo;
  */
 public interface VideoInfoService {
 
+
+    Map findVideoList(VideoInfo video);
+
+    /*上传是皮尼信息的方法*/
+    HashMap<String,Object> advertImgUplod(MultipartFile file);
+
+    GridFSDBFile queryAdvertImage(String advertImage);
+   // 每100次数修改一次点击量
+    void updateVideoClick(Integer imgid, Long i);
+
+    VideoInfo findVideoInfoById(Integer imgid);
 }
