@@ -47,4 +47,7 @@ public class MainUserInfoServiceImpl implements MainUserInfoService {
 	@Autowired
 	private NormalUserMapper normalUserMapper;
 
+
+
+
 }

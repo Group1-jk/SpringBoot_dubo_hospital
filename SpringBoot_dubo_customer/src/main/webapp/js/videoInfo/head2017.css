@@ -1,0 +1,328 @@
+@charset "utf-8";
+.h-an {
+ background:url(//www.med66.com/OtherItem/images/demo2017/h-an.png) no-repeat;
+ _background:url(//www.med66.com/OtherItem/images/demo2017/h-an.gif) no-repeat
+}
+.header {
+ height:70px
+}
+.header #titleName {
+ float:left;
+ line-height:70px;
+ font-size:24px;
+ color:#127de1;
+ padding:0 0 0 22px;
+ font-weight:normal
+}
+.header #titleName a {
+ text-decoration:none
+}
+.header .logo {
+ display:block;
+ margin-top:14px
+}
+.header .cen {
+ height:36px;
+ margin:17px 13px 0 0;
+ font-size:14px;
+ color:#666
+}
+.header .cen a {
+ color:#666
+}
+.header .cen a:hover {
+ color:#4ab83e
+}
+.header .cen .non {
+ border:1px solid #e0e0e0;
+ border-bottom:0;
+ background-position:84px -35px;
+ -webkit-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ -moz-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ box-shadow:4px 7px 16px rgba(0,0,0,0.05)
+}
+.header .cen .non .pop {
+ display:block
+}
+.header .cen .non .pop2 {
+ display:block
+}
+.header .cen-n01 {
+ width:112px;
+ height:34px;
+ line-height:34px;
+ border:1px solid #fff;
+ background-position:84px 15px;
+ cursor:pointer;
+ z-index:9
+}
+.header .cen-n01 .ctxt {
+ padding-left:20px
+}
+.header .cen-n01 .ctxt:hover {
+ color:#4ab83e
+}
+.header .cen-n01 .pop {
+ width:538px;
+ border:1px solid #e0e0e0;
+ background:#fff;
+ left:-1px;
+ top:34px;
+ display:none;
+ cursor:auto;
+ -webkit-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ -moz-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ box-shadow:4px 7px 16px rgba(0,0,0,0.05)
+}
+.header .cen-n01 .pop-t {
+ padding:10px 0 10px 21px
+}
+.header .cen-n01 .pop-t li {
+ float:left;
+ width:86px
+}
+.header .cen-n01 .pop-t li.the {
+ width:72px
+}
+.header .cen-n01 .pop-t li.fiv {
+ width:90px
+}
+.header .cen-n01 .pop-t li.six {
+ width:104px
+}
+.header .cen-n01 .xian {
+ display:block;
+ overflow:hidden;
+ width:112px;
+ height:1px;
+ background:#fff;
+ top:34px;
+ left:0;
+ z-index:2
+}
+.header .cen-n01 .pop-b {
+ height:40px;
+ line-height:40px;
+ background:#f4f4f4;
+ text-align:center;
+ color:#999
+}
+.header .cen-n01 .pop-b a {
+ display:inline-block;
+ padding:0 23px;
+ font-size:14px;
+ color:#999
+}
+.header .cen-n01 .pop2 {
+ width:112px;
+ border:1px solid #e0e0e0;
+ border-top:0;
+ background:#fff;
+ left:-1px;
+ top:34px;
+ display:none;
+ cursor:auto;
+ -webkit-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ -moz-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ box-shadow:4px 7px 16px rgba(0,0,0,0.05)
+}
+.header .cen-n01 .pop2-t {
+ text-align:center;
+ padding-top:10px
+}
+.header .cen-n01 .pop2-b {
+ line-height:36px;
+ text-align:center;
+ font-size:12px;
+ color:#666
+}
+.header .cen-n02 {
+ display:inline-block;
+ width:88px;
+ text-align:center;
+ line-height:36px
+}
+.header .right {
+ height:36px;
+ margin:17px 0 0 0;
+ padding-left:24px;
+ background:url(//www.med66.com/OtherItem/images/demo2017/h_02.png) no-repeat left center;
+ *position:relative;
+ *z-index:5
+}
+.header .right .non {
+ border:1px solid #e0e0e0;
+ border-bottom:0;
+ background-position:48px -235px;
+ -webkit-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ -moz-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ box-shadow:4px 7px 16px rgba(0,0,0,0.05)
+}
+.header .right .non .pop3 {
+ display:block
+}
+.header .right-n01 {
+ display:block;
+ width:50px;
+ height:36px;
+ background-position:13px -292px
+}
+.header .right-n01:hover {
+ background-position:13px -342px;
+ text-decoration:none
+}
+.header .right-n01 i {
+ display:block;
+ width:18px;
+ height:18px;
+ text-align:center;
+ line-height:18px;
+ font-size:12px;
+ color:#fff;
+ top:0;
+ right:6px;
+ background-position:0 -501px
+}
+.header .right-n02 {
+ display:block;
+ width:50px;
+ height:36px;
+ background-position:16px -392px
+}
+.header .right-n02:hover {
+ background-position:16px -442px
+}
+.header .right-login {
+ padding-top:5px
+}
+.header .right-login .dzhan {
+ display:inline-block;
+ width:58px;
+ height:24px;
+ border:1px solid #d0d0d0;
+ color:#666;
+ text-align:center;
+ line-height:24px;
+ font-size:14px;
+ margin-left:18px;
+ border-radius:3px
+}
+.header .right-login .dzhan:hover {
+ border:1px solid #4ab83e;
+ color:#4ab83e;
+ text-decoration:none
+}
+.header .right-loginh {
+ width:68px;
+ height:34px;
+ line-height:34px;
+ border:1px solid #fff;
+ background-position:48px -185px;
+ cursor:pointer;
+ margin-left:6px;
+ z-index:10
+}
+.header .right-loginh .ctxt {
+ display:block;
+ width:30px;
+ height:30px;
+ padding:2px 0 0 10px
+}
+.header .right-loginh .ctxt img {
+ width:30px;
+ height:30px
+}
+.header .right-loginh .ctxt .xquan {
+ display:block;
+ width:30px;
+ height:30px;
+ top:2px;
+ left:10px;
+ background:url(//www.med66.com/OtherItem/images/demo2017/h_01.png) no-repeat
+}
+.header .right-loginh .pop3 {
+ width:228px;
+ border:1px solid #e0e0e0;
+ background:#fff;
+ right:-1px;
+ top:34px;
+ display:none;
+ cursor:auto;
+ -webkit-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ -moz-box-shadow:4px 7px 16px rgba(0,0,0,0.05);
+ box-shadow:4px 7px 16px rgba(0,0,0,0.05)
+}
+.header .right-loginh .xian {
+ display:block;
+ overflow:hidden;
+ width:68px;
+ height:1px;
+ background:#fff;
+ top:34px;
+ right:0;
+ z-index:2
+}
+.header .right-loginh .pop3-t {
+ padding:20px 0 10px 20px
+}
+.header .right-loginh .pop3-t-l {
+ width:50px;
+ height:50px
+}
+.header .right-loginh .pop3-t-l img {
+ width:50px;
+ height:50px
+}
+.header .right-loginh .pop3-t-l .dquan {
+ display:block;
+ width:50px;
+ height:50px;
+ top:20px;
+ left:20px;
+ background:url(//www.med66.com/OtherItem/images/demo2017/h_03.png) no-repeat
+}
+.header .right-loginh .pop3-t-r {
+ width:140px;
+ margin-left:10px;
+ line-height:24px
+}
+.header .right-loginh .pop3-t-r #loginName {
+ display:block;
+ width:140px;
+ height:24px;
+ overflow:hidden;
+ font-size:14px
+}
+.header .right-loginh .pop3-t-r .vip {
+ font-size:12px;
+ color:#999
+}
+.header .right-loginh .pop3-c {
+ margin-bottom:10px
+}
+.header .right-loginh .pop3-c .chan {
+ width:64px;
+ height:40px;
+ padding-left:24px;
+ line-height:40px;
+ font-size:14px;
+ color:#666;
+ margin-left:20px;
+ background-position:0 -538px
+}
+.header .right-loginh .pop3-c .chan:hover {
+ color:#4ab83e
+}
+.header .right-loginh .pop3-c .chan2 {
+ background-position:0 -588px
+}
+.header .right-loginh .pop3-b {
+ display:block;
+ clear:both;
+ height:40px;
+ text-align:center;
+ line-height:40px;
+ font-size:14px;
+ background:#f4f4f4;
+ color:#999
+}

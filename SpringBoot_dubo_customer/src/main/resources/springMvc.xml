@@ -55,7 +55,7 @@
                                         假设controller方法return "test"字符串 则拼接后的路径为
              /WEB-INF/view/test.jsp
          -->
-         <property name="prefix" value="/view/"/>
+         <property name="prefix" value="/WEB-INF/view"/>
          <property name="suffix" value=".jsp" />
      </bean> 
 
