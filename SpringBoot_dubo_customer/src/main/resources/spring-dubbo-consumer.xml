@@ -31,4 +31,10 @@
 	<dubbo:reference id="userInfoService" interface="com.jk.service.MainUserInfo.MainUserInfoService"  timeout="40000"  />
 
 	<dubbo:reference id="videoInfo" interface="com.jk.service.ShowVideoInfo.VideoInfoService"  timeout="40000"  />
-</beans>  
+
+	<dubbo:reference id="three" interface="com.jk.service.Three.ThreeService"  timeout="40000"  />
+
+	<dubbo:reference id="userWeb" interface="com.jk.service.user.UserWebService"  timeout="40000"  />
+
+	<dubbo:reference id="login" interface="com.jk.service.login.LoginUserService"  timeout="40000"  />
+</beans>

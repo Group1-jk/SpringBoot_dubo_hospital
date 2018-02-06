@@ -19,6 +19,10 @@
     <!-- 引入jquery -->
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <script type="text/javascript" src="js/style.js" ></script>
+
     <!-- 引入bootstrap的js-->
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap/js/bootstrap.min.js"></script>
 
