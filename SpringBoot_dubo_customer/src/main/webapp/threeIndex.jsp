@@ -85,7 +85,7 @@
 				$("#bdtj3").show();
 			},
 			error:function(){
-				alert("失败");
+				//alert("失败");
 			}
 			
 		})

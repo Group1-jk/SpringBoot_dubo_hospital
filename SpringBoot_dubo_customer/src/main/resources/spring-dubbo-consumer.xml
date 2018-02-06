@@ -34,4 +34,7 @@
 
 	<dubbo:reference id="three" interface="com.jk.service.Three.ThreeService"  timeout="40000"  />
 
+	<dubbo:reference id="userWeb" interface="com.jk.service.user.UserWebService"  timeout="40000"  />
+
+	<dubbo:reference id="login" interface="com.jk.service.login.LoginUserService"  timeout="40000"  />
 </beans>

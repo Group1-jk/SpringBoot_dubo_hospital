@@ -43,4 +43,13 @@
 
     <dubbo:service interface="com.jk.service.Three.ThreeService" ref="threeService" />
 
- </beans>	
+    <!-- 注入实现类 -->
+    <bean id="userWebService" class="com.jk.service.user.Impl.UserWebServiceImpl"></bean>
+
+    <dubbo:service interface="com.jk.service.user.UserWebService" ref="userWebService" />
+
+    <!-- 注入实现类 -->
+    <bean id="loginService" class="com.jk.service.login.Impl.LoginUserServiceImpl"></bean>
+
+    <dubbo:service interface="com.jk.service.login.LoginUserService" ref="loginService" />
+</beans>
