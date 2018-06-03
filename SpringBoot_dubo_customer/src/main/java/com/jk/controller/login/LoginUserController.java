@@ -26,7 +26,7 @@ public class LoginUserController {
 
 	@Autowired
 	LoginUserService loginUserService;
-	
+	//ahdijshfkjhsakjfhsakfjljadshfhjkakjhfdsa
 	/**
 	 * <pre>loginUser(登录认证)   
 	 * 创建人：段浩 1261131109@qq.com     
