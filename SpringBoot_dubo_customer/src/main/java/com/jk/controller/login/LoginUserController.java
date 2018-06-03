@@ -45,7 +45,7 @@ public class LoginUserController {
 		return flag;
 	}
 	//asdjfkadsjfhjksah wangshuo
-	
+	// wangwushuo
 	/**
 	 * <pre>loginAccount(昵称展示)   
 	 * 创建人：段浩 1261131109@qq.com     
