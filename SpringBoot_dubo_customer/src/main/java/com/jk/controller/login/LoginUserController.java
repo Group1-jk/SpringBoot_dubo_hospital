@@ -44,6 +44,7 @@ public class LoginUserController {
 		
 		return flag;
 	}
+	//asdjfkadsjfhjksah wangshuo
 	
 	/**
 	 * <pre>loginAccount(昵称展示)   
